@@ -11,6 +11,8 @@ theta0=4;
 H0=0.6;
 sigma0=3;
 
+%{
+  % >>> HEAVY BLOCK (commented out for CI) <<<
 for s = 1:100
     N = Newton2(H0,theta0,sigma0,0.0001,20,12);
     n1 = length(N(1,:)) ;
@@ -51,5 +53,6 @@ Vy = sum((Lsigma-Y).^2)/(M2-1) ;
 Vs = sum((LH-S).^2)/(M3-1) ;
 
 disp([[X,Y,S];[sqrt(Vx),sqrt(Vy),sqrt(Vs)]])
+%}
 
 

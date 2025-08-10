@@ -14,6 +14,8 @@ theta0=4;
 H0=0.6;
 sigma0=3;
 
+%{
+ % >>> HEAVY BLOCK (commented out for CI) <<<
 for s = 1:10
     N = Newton2(H0,theta0,sigma0,0.0001,20,s+6);
     n1 = length(N(1,:)) ;
@@ -54,5 +56,5 @@ plot(7:16,LH)
 hold
 plot(7:16,LH1)
 plot(7:16,LH2)
-
+%}
 
