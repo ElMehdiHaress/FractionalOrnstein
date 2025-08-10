@@ -1,4 +1,4 @@
-function [result] = testest(s,h) 
+function [result] = eta_quantities(s,h) 
 % This function computes the quantities needed to define the estimator
 
 

@@ -19,8 +19,8 @@ function [ result ] = Newton2( H0,theta0,sigma0, tol, nmax,s )
     
     
     h = 0.1 ;
-    a = testest(s,h) ;
-    b = testest(s,10*h) ;
+    a = eta_quantities(s,h) ;
+    b = eta_quantities(s,10*h) ;
     a1=a(1);
     a2=a(2);
     a3=b(2);
