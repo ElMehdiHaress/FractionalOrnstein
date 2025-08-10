@@ -1,0 +1,31 @@
+name: CI (Octave)
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Octave
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y octave
+
+      - name: Run tests (scripts)
+        env:
+          OCTAVE: octave -qf --eval
+        run: |
+          ${OCTAVE} "disp('Octave version:'), disp(version())"
+          ${OCTAVE} "addpath(genpath(pwd)); \
+                      if exist('Almostsureconvergence_test.m','file'), run('Almostsureconvergence_test.m'); \
+                      elseif exist('tests/Almostsureconvergence_test.m','file'), run('tests/Almostsureconvergence_test.m'); \
+                      else, error('Almostsureconvergence_test.m not found'); end"
+          ${OCTAVE} "addpath(genpath(pwd)); \
+                      if exist('Asymptoticdistribution_test.m','file'), run('Asymptoticdistribution_test.m'); \
+                      elseif exist('tests/Asymptoticdistribution_test.m','file'), run('tests/Asymptoticdistribution_test.m'); \
+                      else, error('Asymptoticdistribution_test.m not found'); end"
+

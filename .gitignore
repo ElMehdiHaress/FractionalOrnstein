@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# MATLAB / Octave junk
+*.asv
+*.m~
+*.mex*
+*.autosave
+*.mat
+*.fig
+
+# Codegen / Simulink
+codegen/
+slprj/
+sccprj/
